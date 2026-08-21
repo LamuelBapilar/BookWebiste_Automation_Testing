@@ -61,7 +61,7 @@ BookWebsite_Automation_Testing/
 
 Run the full suite:
 ```bash
-robot --outputdir results tests/test_book.robot
+robot tests/test_book.robot
 ```
 
 This will:
@@ -93,4 +93,4 @@ And in `tests/test_book.robot`:
 ## Notes
 
 - `MAX_PAGES` is capped at 3 by default to stay within Groq's free-tier rate limits and keep demo runs fast — increase it if you have a higher rate limit.
-- The AI spelling check is tuned to avoid false positives on invented book titles, character names, and stylized terms — it only flags clear typos of real English words.
+- For Demo purposes, Temporary Groq API Key (Expires at Sept 20, 2026) is already integrated in AISpellingValidator.py so no need to provide your own key. 
