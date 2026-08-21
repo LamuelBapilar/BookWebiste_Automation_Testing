@@ -15,7 +15,7 @@ The suite scrapes book listings from the site, saves them to JSON, then runs a s
 ## Project Structure
 
 ```
-BookWebsite_Automation_Testing/
+BookWebiste_Automation_Testing/
 ├── libraries/
 │   ├── AISpellingValidator.py   # Groq API wrapper for spelling checks
 │   └── BookScraper.py           # Selenium scraper for books.toscrape.com
@@ -36,23 +36,28 @@ BookWebsite_Automation_Testing/
 - Python 3.9+
 - Microsoft Edge + matching [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) on your `PATH`
 - A [Groq API key](https://console.groq.com/keys) (Temporary API already included for demo, expires at Sept 20, 2026)
+- VS Code
 
 ## Setup
 
-1. **Clone the repo**
+1. **Open a terminal**
+
+   In VS Code, open the integrated terminal via `Terminal > New Terminal` (or `` Ctrl+` ``). Alternatively, open your system terminal (Command Prompt, PowerShell, or Terminal.app) and `cd` into the folder where you want the project to live.
+
+2. **Clone the repo**
    ```bash
-   git clone <repo-url>
-   cd BookWebsite_Automation_Testing
+   git clone git@github.com:LamuelBapilar/BookWebiste_Automation_Testing.git
+   cd BookWebiste_Automation_Testing
    ```
 
-2. **Create and activate a virtual environment**
+3. **Create and activate a virtual environment**
    ```bash
    python -m venv venv
    venv\Scripts\activate      # Windows
    source venv/bin/activate   # macOS/Linux
    ```
 
-3. **Install dependencies**
+4. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
@@ -93,4 +98,4 @@ And in `tests/test_book.robot`:
 ## Notes
 
 - `MAX_PAGES` is capped at 3 by default to stay within Groq's free-tier rate limits and keep demo runs fast — increase it if you have a higher rate limit.
-- For Demo purposes, Temporary Groq API Key (Expires at Sept 20, 2026) is already integrated in AISpellingValidator.py so no need to provide your own key. 
+- For Demo purposes, Temporary Groq API Key (Expires at Sept 20, 2026) is already integrated in AISpellingValidator.py so no need to provide your own key.
