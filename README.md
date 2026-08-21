@@ -35,7 +35,7 @@ BookWebsite_Automation_Testing/
 
 - Python 3.9+
 - Microsoft Edge + matching [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) on your `PATH`
-- A [Groq API key](https://console.groq.com/keys)
+- A [Groq API key](https://console.groq.com/keys) (Temporary API already included for demo, expires at Sept 20, 2026)
 
 ## Setup
 
@@ -56,19 +56,6 @@ BookWebsite_Automation_Testing/
    ```bash
    pip install -r requirements.txt
    ```
-
-4. **Configure your Groq API key**
-
-   Create a `.env` file in the project root (make sure `.env` is listed in `.gitignore`):
-   ```
-   GROQ_API_KEY=your_key_here
-   ```
-   Then update `AISpellingValidator.py` to read the key from the environment instead of a hardcoded string:
-   ```python
-   import os
-   GROQ_API = os.getenv("GROQ_API_KEY")
-   ```
-   > ⚠️ Never commit real API keys to the repository, even in a private repo — rotate any key that has been pushed to git history.
 
 ## Running the Tests
 
