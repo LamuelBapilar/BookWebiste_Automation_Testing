@@ -1,6 +1,6 @@
 """
 BookScraper.py
-Scrapes books.toscrape.com with Selenium and saves results to JSON.
+- Scrapes books.toscrape.com with Selenium and saves results to JSON.
 """
 
 import json

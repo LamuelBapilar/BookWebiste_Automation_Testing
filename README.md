@@ -1,141 +1,109 @@
 # Testing-Robot
 
-UI test automation project built with **Robot Framework**, **Python**, and **Selenium**, targeting [the-internet.herokuapp.com](https://the-internet.herokuapp.com) as the system under test.
+Automated testing suite for [books.toscrape.com](https://books.toscrape.com), built with **Robot Framework**, **Selenium**, and a **Groq-powered AI spell-checker** for scraped book titles.
 
-This project demonstrates automated UI testing with a modular, maintainable project structure suitable for scaling into a larger test suite.
+The suite scrapes book listings from the site, saves them to JSON, then runs a series of Robot Framework tests that validate data quality, verify the live UI, and use an AI model to catch misspelled titles.
 
----
+## Features
 
-## Tech Stack
-
-- **Robot Framework** — keyword-driven test automation framework
-- **Python** — scripting language / custom library support
-- **Selenium** (via SeleniumLibrary) — browser automation engine
-- **webdriver-manager** — automatically manages browser driver binaries
-
----
+- 🕸️ **Web scraping** — Selenium-based scraper (`BookScraper.py`) pulls title, price, and stock status across multiple pages.
+- ✅ **Data-quality checks** — confirms every scraped book has all required fields populated.
+- 🤖 **AI spelling validation** — sends scraped titles to Groq (`openai/gpt-oss-120b`) to flag genuine typos while ignoring invented names, brands, and stylized terms.
+- 🌐 **Live UI checks** — opens the real site in a browser and verifies listings actually render.
+- 🔁 **Cross-check** — confirms every scraped title can still be found by paging through the live site.
 
 ## Project Structure
 
 ```
-Testing-Robot/
-├── tests/               # .robot test suites
-│   └── sample_test.robot
-├── resources/           # reusable keywords, page objects
-├── libraries/           # custom Python libraries
-├── results/             # test run output (log.html, report.html, output.xml)
-├── venv/                # Python virtual environment (not committed)
-├── requirements.txt     # pinned Python dependencies
-├── .gitignore
+BookWebsite_Automation_Testing/
+├── libraries/
+│   ├── AISpellingValidator.py   # Groq API wrapper for spelling checks
+│   └── BookScraper.py           # Selenium scraper for books.toscrape.com
+├── resources/                   # Shared Robot Framework resources
+├── results/
+│   └── books.json               # Scraped output (generated)
+├── tests/
+│   └── test_book.robot          # Main Robot Framework test suite
+├── log.html                     # Robot Framework run log (generated)
+├── output.xml                   # Robot Framework run output (generated)
+├── report.html                  # Robot Framework run report (generated)
+├── requirements.txt
 └── README.md
 ```
 
-- **tests/** — the actual `.robot` test case files, organized by feature/page
-- **resources/** — shared keywords and locators, following the Page Object Model pattern
-- **libraries/** — custom Python-based Robot Framework libraries for functionality beyond built-in keywords
-- **results/** — generated automatically when tests run; gitignored
-
----
-
 ## Prerequisites
 
-- [Python 3.8+](https://www.python.org/downloads/) installed and available on PATH
-- Google Chrome, Microsoft Edge, or Firefox installed (whichever browser you plan to run tests against)
-- Git (to clone the repository)
+- Python 3.9+
+- Microsoft Edge + matching [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) on your `PATH`
+- A [Groq API key](https://console.groq.com/keys)
 
----
+## Setup
 
-## Setup Instructions
+1. **Clone the repo**
+   ```bash
+   git clone <repo-url>
+   cd BookWebsite_Automation_Testing
+   ```
 
-### 1. Clone the repository
+2. **Create and activate a virtual environment**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate      # Windows
+   source venv/bin/activate   # macOS/Linux
+   ```
 
-```bash
-git clone <repository-url>
-cd Testing-Robot
-```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 2. Create a virtual environment
+4. **Configure your Groq API key**
 
-```bash
-python -m venv venv
-```
-
-### 3. Activate the virtual environment
-
-**Windows (PowerShell):**
-```powershell
-venv\Scripts\activate
-```
-
-**Mac/Linux:**
-```bash
-source venv/bin/activate
-```
-
-You should see `(venv)` appear at the start of your terminal prompt once activated.
-
-> **Windows PowerShell note:** if activation fails with a script execution error, run this once (as your user, not admin):
-> ```powershell
-> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-> ```
-
-### 4. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 5. Verify installation
-
-```bash
-robot --version
-```
-
-You should see output similar to `Robot Framework 7.4.2 (Python 3.14.4 on win32)`.
-
----
+   Create a `.env` file in the project root (make sure `.env` is listed in `.gitignore`):
+   ```
+   GROQ_API_KEY=your_key_here
+   ```
+   Then update `AISpellingValidator.py` to read the key from the environment instead of a hardcoded string:
+   ```python
+   import os
+   GROQ_API = os.getenv("GROQ_API_KEY")
+   ```
+   > ⚠️ Never commit real API keys to the repository, even in a private repo — rotate any key that has been pushed to git history.
 
 ## Running the Tests
 
-Run all tests in the `tests/` folder, with results saved to `results/`:
-
+Run the full suite:
 ```bash
-robot --outputdir results tests/
+robot --outputdir results tests/test_book.robot
 ```
 
-Run a single test file:
+This will:
+1. Scrape up to `MAX_PAGES` (default: 3) pages from books.toscrape.com and save results to `results/books.json`.
+2. Validate that scraped data is complete.
+3. Run the AI spelling check against scraped titles.
+4. Open a browser and verify the live site renders book listings.
+5. Cross-check that scraped titles are findable on the live site.
 
-```bash
-robot --outputdir results tests/sample_test.robot
-```
+Test results are written to `log.html`, `report.html`, and `output.xml`.
 
-Run tests by tag (once tags are added to test cases):
+## Configuration
 
-```bash
-robot --outputdir results --include smoke tests/
-```
+Key settings can be adjusted in `libraries/BookScraper.py`:
 
----
+| Variable     | Description                          | Default                          |
+|--------------|---------------------------------------|-----------------------------------|
+| `URL`        | Target site to scrape                 | `https://books.toscrape.com/`     |
+| `MAX_PAGES`  | Number of pages to scrape (max 50)    | `3`                                |
+| `SAVE_FILE`  | Output path for scraped JSON          | `results/books.json`               |
 
-## Viewing Test Results
+And in `tests/test_book.robot`:
 
-After a run, open the generated report in your browser:
-
-- `results/report.html` — high-level pass/fail summary
-- `results/log.html` — detailed step-by-step execution log, useful for debugging failures
-- `results/output.xml` — raw machine-readable results
-
----
-
-## VS Code Setup (Recommended)
-
-1. Install the **RobotCode** extension (by Daniel Biehl) from the VS Code Marketplace
-2. Install the **Python** extension (by Microsoft), if not already installed
-3. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Python: Select Interpreter** → choose the interpreter inside `.\venv\Scripts\python.exe` (labeled "Workspace")
-
----
+| Variable      | Description                | Default   |
+|---------------|-----------------------------|-----------|
+| `${BROWSER}`  | Browser used for Selenium   | `edge`    |
+| `${SITE_URL}` | Site under test              | `https://books.toscrape.com` |
 
 ## Notes
 
-- Browser driver binaries are managed automatically via `webdriver-manager` — no manual driver downloads needed.
-- The `venv/` folder and `results/` folder are excluded from version control via `.gitignore`; only `requirements.txt` is committed so dependencies can be reproduced elsewhere.
+- `MAX_PAGES` is capped at 3 by default to stay within Groq's free-tier rate limits and keep demo runs fast — increase it if you have a higher rate limit.
+- The AI spelling check is tuned to avoid false positives on invented book titles, character names, and stylized terms — it only flags clear typos of real English words.
