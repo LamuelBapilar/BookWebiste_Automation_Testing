@@ -1,4 +1,4 @@
-# Testing-Robot
+# Books Webiste Test Automation
 
 Automated testing suite for [books.toscrape.com](https://books.toscrape.com), built with **Robot Framework**, **Selenium**, and a **Groq-powered AI spell-checker** for scraped book titles.
 
