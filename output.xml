@@ -1,0 +1,3811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.4 on win32)" generated="2026-08-21T16:11:41.244749" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Book" source="E:\Automation Robot\Testing-Robot\tests\test_book.robot">
+<kw name="Scrape Books" owner="BookScraper" type="SETUP">
+<msg time="2026-08-21T16:11:54.088861" level="INFO">scraping page 1
+scraping page 2
+scraping page 3</msg>
+<status status="PASS" start="2026-08-21T16:11:42.670174" elapsed="11.419269"/>
+</kw>
+<test id="s1-t1" name="Scrape Books Across Multiple Pages" line="18">
+<kw name="Save To Json" owner="BookScraper">
+<msg time="2026-08-21T16:11:54.099458" level="INFO">saved 60 books to results/books.json</msg>
+<status status="PASS" start="2026-08-21T16:11:54.093126" elapsed="0.006733"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2026-08-21T16:11:54.101912" level="INFO" html="true">File '&lt;a href="file://E:\Automation Robot\Testing-Robot\results\books.json"&gt;E:\Automation Robot\Testing-Robot\results\books.json&lt;/a&gt;' exists.</msg>
+<arg>${JSON_OUTPUT}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.100925" elapsed="0.001243"/>
+</kw>
+<doc>Scrape site pages for book details and save results to a JSON file.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.090088" elapsed="0.013432"/>
+</test>
+<test id="s1-t2" name="Scraped Book Fields Should Not Be Empty" line="23">
+<kw name="Get Scraped Books" owner="BookScraper">
+<msg time="2026-08-21T16:11:54.111312" level="INFO">${books} = [{'title': 'A Light in the Attic', 'price': '£51.77', 'stock': 'In stock'}, {'title': 'Tipping the Velvet', 'price': '£53.74', 'stock': 'In stock'}, {'title': 'Soumission', 'price': '£50.10', 'stock':...</msg>
+<var>${books}</var>
+<status status="PASS" start="2026-08-21T16:11:54.110327" elapsed="0.001135"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.115056" level="INFO">Length is 20.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.113260" elapsed="0.002165"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.116985" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.115931" elapsed="0.001259"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.118561" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.117610" elapsed="0.001147"/>
+</kw>
+<var name="${book}">{'title': 'A Light in the Attic', 'price': '£51.77', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.112871" elapsed="0.006092"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.122244" level="INFO">Length is 18.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.120422" elapsed="0.002203"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.125448" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.123330" elapsed="0.002464"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.127075" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.126314" elapsed="0.000905"/>
+</kw>
+<var name="${book}">{'title': 'Tipping the Velvet', 'price': '£53.74', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.119512" elapsed="0.007854"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.128707" level="INFO">Length is 10.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.128006" elapsed="0.000843"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.129808" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.129143" elapsed="0.000807"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.130896" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.130238" elapsed="0.000793"/>
+</kw>
+<var name="${book}">{'title': 'Soumission', 'price': '£50.10', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.127741" elapsed="0.003433"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.133343" level="INFO">Length is 13.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.131720" elapsed="0.002121"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.134939" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.134265" elapsed="0.000768"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.135655" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.135227" elapsed="0.000513"/>
+</kw>
+<var name="${book}">{'title': 'Sharp Objects', 'price': '£47.82', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.131501" elapsed="0.004332"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.137562" level="INFO">Length is 37.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.136456" elapsed="0.001262"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.138974" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.138094" elapsed="0.001027"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.140157" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.139474" elapsed="0.000825"/>
+</kw>
+<var name="${book}">{'title': 'Sapiens: A Brief History of Humankind', 'price': '£54.23', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.136087" elapsed="0.004358"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.141733" level="INFO">Length is 15.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.141038" elapsed="0.000849"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.142867" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.142191" elapsed="0.000811"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.143953" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.143288" elapsed="0.000801"/>
+</kw>
+<var name="${book}">{'title': 'The Requiem Red', 'price': '£22.65', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.140783" elapsed="0.003447"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.145478" level="INFO">Length is 50.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.144823" elapsed="0.000794"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.146797" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.145910" elapsed="0.001725"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.149291" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.148304" elapsed="0.001096"/>
+</kw>
+<var name="${book}">{'title': 'The Dirty Little Secrets of Getting Your Dream Job', 'price': '£33.34', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.144599" elapsed="0.004906"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.150345" level="INFO">Length is 87.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.149912" elapsed="0.000522"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.151049" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.150618" elapsed="0.000522"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.152038" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.151325" elapsed="0.000810"/>
+</kw>
+<var name="${book}">{'title': 'The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull', 'price': '£17.93', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.149738" elapsed="0.002488"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.153216" level="INFO">Length is 94.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.152575" elapsed="0.000826"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.154609" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.153981" elapsed="0.000896"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.156188" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.155346" elapsed="0.000937"/>
+</kw>
+<var name="${book}">{'title': 'The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics', 'price': '£22.60', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.152430" elapsed="0.003946"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.157131" level="INFO">Length is 15.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.156763" elapsed="0.000434"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.157625" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.157328" elapsed="0.000363"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.158136" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.157822" elapsed="0.000379"/>
+</kw>
+<var name="${book}">{'title': 'The Black Maria', 'price': '£52.15', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.156609" elapsed="0.001658"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.158840" level="INFO">Length is 46.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.158526" elapsed="0.000380"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.159330" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.159035" elapsed="0.000354"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.159810" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.159515" elapsed="0.000368"/>
+</kw>
+<var name="${book}">{'title': 'Starving Hearts (Triangular Trade Trilogy, #1)', 'price': '£13.99', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.158418" elapsed="0.001530"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.160499" level="INFO">Length is 21.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.160205" elapsed="0.000354"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.161074" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.160688" elapsed="0.000487"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.161867" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.161385" elapsed="0.000581"/>
+</kw>
+<var name="${book}">{'title': "Shakespeare's Sonnets", 'price': '£20.66', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.160096" elapsed="0.001973"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.162972" level="INFO">Length is 11.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.162481" elapsed="0.000590"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.163772" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.163285" elapsed="0.000595"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.164574" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.164092" elapsed="0.000586"/>
+</kw>
+<var name="${book}">{'title': 'Set Me Free', 'price': '£17.46', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.162308" elapsed="0.002471"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.165679" level="INFO">Length is 55.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.165192" elapsed="0.000587"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.166483" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.165992" elapsed="0.000628"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.167322" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.166837" elapsed="0.000589"/>
+</kw>
+<var name="${book}">{'title': "Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)", 'price': '£52.29', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.165018" elapsed="0.002512"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.168544" level="INFO">Length is 25.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.167978" elapsed="0.000672"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.169368" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.168873" elapsed="0.000597"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.170768" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.169691" elapsed="0.001233"/>
+</kw>
+<var name="${book}">{'title': 'Rip it Up and Start Again', 'price': '£35.02', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.167765" elapsed="0.003296"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.172355" level="INFO">Length is 82.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.171685" elapsed="0.000785"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.173505" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.172852" elapsed="0.000767"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.174348" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.173853" elapsed="0.000597"/>
+</kw>
+<var name="${book}">{'title': 'Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991', 'price': '£57.25', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.171386" elapsed="0.003169"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.175483" level="INFO">Length is 4.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.174984" elapsed="0.000599"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.176287" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.175794" elapsed="0.000593"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.177088" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.176599" elapsed="0.000596"/>
+</kw>
+<var name="${book}">{'title': 'Olio', 'price': '£23.88', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.174802" elapsed="0.002497"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.178206" level="INFO">Length is 53.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.177717" elapsed="0.000590"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.179008" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.178519" elapsed="0.000590"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.179835" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.179343" elapsed="0.000593"/>
+</kw>
+<var name="${book}">{'title': 'Mesaerion: The Best Science Fiction Stories 1800-1849', 'price': '£37.59', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.177546" elapsed="0.002492"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.180935" level="INFO">Length is 28.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.180448" elapsed="0.000589"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.181738" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.181251" elapsed="0.000593"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.182546" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.182058" elapsed="0.000590"/>
+</kw>
+<var name="${book}">{'title': 'Libertarianism for Beginners', 'price': '£51.33', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.180279" elapsed="0.002481"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.183657" level="INFO">Length is 23.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.183174" elapsed="0.000584"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.185019" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.184326" elapsed="0.000822"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.186067" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.185426" elapsed="0.000758"/>
+</kw>
+<var name="${book}">{'title': "It's Only the Himalayas", 'price': '£45.17', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.183004" elapsed="0.003294"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.187873" level="INFO">Length is 11.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.186969" elapsed="0.001043"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.189132" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.188530" elapsed="0.000707"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.189972" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.189466" elapsed="0.000606"/>
+</kw>
+<var name="${book}">{'title': 'In Her Wake', 'price': '£12.84', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.186715" elapsed="0.003461"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.191150" level="INFO">Length is 15.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.190649" elapsed="0.000603"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.191947" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.191463" elapsed="0.000588"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.192745" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.192264" elapsed="0.000584"/>
+</kw>
+<var name="${book}">{'title': 'How Music Works', 'price': '£37.32', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.190475" elapsed="0.002478"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.193873" level="INFO">Length is 175.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.193376" elapsed="0.000599"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.194674" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.194189" elapsed="0.000586"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.195472" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.194992" elapsed="0.000582"/>
+</kw>
+<var name="${book}">{'title': 'Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More', 'price': '£...</var>
+<status status="PASS" start="2026-08-21T16:11:54.193207" elapsed="0.002475"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.196276" level="INFO">Length is 26.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.195976" elapsed="0.000364"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.196756" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.196467" elapsed="0.000356"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.197294" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.196958" elapsed="0.000410"/>
+</kw>
+<var name="${book}">{'title': 'Chase Me (Paris Nights #2)', 'price': '£25.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.195869" elapsed="0.001561"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.197984" level="INFO">Length is 10.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.197673" elapsed="0.000375"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.198488" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.198181" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.199002" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.198685" elapsed="0.000377"/>
+</kw>
+<var name="${book}">{'title': 'Black Dust', 'price': '£34.53', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.197572" elapsed="0.001551"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.199656" level="INFO">Length is 29.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.199363" elapsed="0.000353"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.200332" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.199951" elapsed="0.000446"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.200832" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.200532" elapsed="0.000365"/>
+</kw>
+<var name="${book}">{'title': 'Birdsong: A Story in Pictures', 'price': '£54.64', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.199262" elapsed="0.001703"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.201517" level="INFO">Length is 107.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.201223" elapsed="0.000358"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.202015" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.201706" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.202518" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.202222" elapsed="0.000357"/>
+</kw>
+<var name="${book}">{'title': "America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana", 'price': '£22.50', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.201120" elapsed="0.001519"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.203213" level="INFO">Length is 30.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.202891" elapsed="0.000565"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.204577" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.203773" elapsed="0.000898"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.205429" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.204927" elapsed="0.000571"/>
+</kw>
+<var name="${book}">{'title': 'Aladdin and His Wonderful Lamp', 'price': '£53.13', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.202779" elapsed="0.002788"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.206181" level="INFO">Length is 53.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.205862" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.206700" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.206386" elapsed="0.000380"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.207236" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.206929" elapsed="0.000371"/>
+</kw>
+<var name="${book}">{'title': 'Worlds Elsewhere: Journeys Around Shakespeare’s Globe', 'price': '£40.30', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.205744" elapsed="0.001622"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.207941" level="INFO">Length is 14.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.207626" elapsed="0.000383"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.208456" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.208145" elapsed="0.000378"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.208969" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.208657" elapsed="0.000375"/>
+</kw>
+<var name="${book}">{'title': 'Wall and Piece', 'price': '£44.18', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.207517" elapsed="0.001581"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.209664" level="INFO">Length is 58.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.209355" elapsed="0.000372"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.210167" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.209862" elapsed="0.000369"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.210671" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.210366" elapsed="0.000367"/>
+</kw>
+<var name="${book}">{'title': 'The Four Agreements: A Practical Guide to Personal Freedom', 'price': '£17.66', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.209247" elapsed="0.001571"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.211359" level="INFO">Length is 73.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.211065" elapsed="0.000355"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.211866" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.211548" elapsed="0.000377"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.212341" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.212051" elapsed="0.000350"/>
+</kw>
+<var name="${book}">{'title': 'The Five Love Languages: How to Express Heartfelt Commitment to Your Mate', 'price': '£31.05', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.210964" elapsed="0.001498"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.213023" level="INFO">Length is 17.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.212702" elapsed="0.000385"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.213505" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.213213" elapsed="0.000353"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.213998" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.213691" elapsed="0.000367"/>
+</kw>
+<var name="${book}">{'title': 'The Elephant Tree', 'price': '£23.82', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.212601" elapsed="0.001524"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.214656" level="INFO">Length is 22.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.214365" elapsed="0.000356"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.215159" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.214867" elapsed="0.000351"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.215635" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.215344" elapsed="0.000357"/>
+</kw>
+<var name="${book}">{'title': 'The Bear and the Piano', 'price': '£36.89', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.214264" elapsed="0.001498"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.216488" level="INFO">Length is 14.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.216164" elapsed="0.000389"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.217024" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.216686" elapsed="0.000402"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.217523" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.217221" elapsed="0.000366"/>
+</kw>
+<var name="${book}">{'title': "Sophie's World", 'price': '£15.94', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.216011" elapsed="0.001642"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.218244" level="INFO">Length is 11.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.217929" elapsed="0.000383"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.218779" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.218449" elapsed="0.000406"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.219295" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.218992" elapsed="0.000369"/>
+</kw>
+<var name="${book}">{'title': 'Penny Maybe', 'price': '£33.29', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.217823" elapsed="0.001603"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.220283" level="INFO">Length is 46.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.219682" elapsed="0.000742"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.221387" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.220765" elapsed="0.000710"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.222099" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.221732" elapsed="0.000453"/>
+</kw>
+<var name="${book}">{'title': 'Maude (1883-1993):She Grew Up with the country', 'price': '£18.02', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.219575" elapsed="0.002686"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.222858" level="INFO">Length is 20.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.222534" elapsed="0.000390"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.223382" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.223068" elapsed="0.000377"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.223890" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.223579" elapsed="0.000373"/>
+</kw>
+<var name="${book}">{'title': 'In a Dark, Dark Wood', 'price': '£19.63', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.222426" elapsed="0.001591"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.224583" level="INFO">Length is 19.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.224273" elapsed="0.000378"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.225099" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.224788" elapsed="0.000375"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.225609" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.225298" elapsed="0.000376"/>
+</kw>
+<var name="${book}">{'title': 'Behind Closed Doors', 'price': '£52.22', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.224166" elapsed="0.001575"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.226315" level="INFO">Length is 30.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.226000" elapsed="0.000378"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.226826" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.226515" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.227307" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.227010" elapsed="0.000362"/>
+</kw>
+<var name="${book}">{'title': "You can't bury them all: Poems", 'price': '£33.63', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.225891" elapsed="0.001542"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.227993" level="INFO">Length is 30.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.227679" elapsed="0.000374"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.228472" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.228181" elapsed="0.000351"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.228968" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.228658" elapsed="0.000370"/>
+</kw>
+<var name="${book}">{'title': 'Slow States of Collapse: Poems', 'price': '£57.31', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.227578" elapsed="0.001513"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.229626" level="INFO">Length is 21.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.229332" elapsed="0.000358"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.230127" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.229839" elapsed="0.000347"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.230598" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.230313" elapsed="0.000344"/>
+</kw>
+<var name="${book}">{'title': 'Reasons to Stay Alive', 'price': '£26.41', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.229231" elapsed="0.001487"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.231513" level="INFO">Length is 27.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.231193" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.232047" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.231719" elapsed="0.000392"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.232546" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.232245" elapsed="0.000370"/>
+</kw>
+<var name="${book}">{'title': 'Private Paris (Private #10)', 'price': '£47.61', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.231065" elapsed="0.001617"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.233270" level="INFO">Length is 66.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.232967" elapsed="0.000368"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.233792" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.233470" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.234301" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.233997" elapsed="0.000368"/>
+</kw>
+<var name="${book}">{'title': '#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.', 'price': '£23.11', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.232852" elapsed="0.001599"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.235033" level="INFO">Length is 31.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.234706" elapsed="0.000396"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.235542" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.235236" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.236068" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.235739" elapsed="0.000393"/>
+</kw>
+<var name="${book}">{'title': 'Without Borders (Wanderlove #1)', 'price': '£45.07', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.234598" elapsed="0.001599"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.236951" level="INFO">Length is 16.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.236454" elapsed="0.000674"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.238222" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.237475" elapsed="0.000878"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.239217" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.238643" elapsed="0.000689"/>
+</kw>
+<var name="${book}">{'title': 'When We Collided', 'price': '£31.77', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.236344" elapsed="0.003102"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.240430" level="INFO">Length is 28.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.239903" elapsed="0.000634"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.241293" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.240765" elapsed="0.000608"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.241920" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.241528" elapsed="0.000478"/>
+</kw>
+<var name="${book}">{'title': 'We Love You, Charlie Freeman', 'price': '£50.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.239718" elapsed="0.002361"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.242675" level="INFO">Length is 39.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.242368" elapsed="0.000381"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.243186" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.242892" elapsed="0.000356"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.243668" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.243376" elapsed="0.000352"/>
+</kw>
+<var name="${book}">{'title': 'Untitled Collection: Sabbath Poems 2014', 'price': '£14.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.242254" elapsed="0.001556"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.244351" level="INFO">Length is 105.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.244061" elapsed="0.000354"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.244853" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.244539" elapsed="0.000375"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.245325" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.245039" elapsed="0.000351"/>
+</kw>
+<var name="${book}">{'title': 'Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails &amp; Other Wonders of the Urban Wilderness', 'price': '£44.18', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.243959" elapsed="0.001495"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.246024" level="INFO">Length is 14.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.245697" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.246508" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.246212" elapsed="0.000357"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.247131" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.246695" elapsed="0.000512"/>
+</kw>
+<var name="${book}">{'title': 'Unicorn Tracks', 'price': '£18.78', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.245595" elapsed="0.001678"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.247867" level="INFO">Length is 102.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.247531" elapsed="0.000403"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.248373" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.248069" elapsed="0.000367"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.248906" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.248572" elapsed="0.000397"/>
+</kw>
+<var name="${book}">{'title': 'Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink', 'price': '£25.52', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.247424" elapsed="0.001611"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.249602" level="INFO">Length is 55.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.249295" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.250152" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.249843" elapsed="0.000373"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.250654" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.250352" elapsed="0.000370"/>
+</kw>
+<var name="${book}">{'title': 'Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)', 'price': '£16.28', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.249187" elapsed="0.001623"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.251374" level="INFO">Length is 75.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.251069" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.251903" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.251576" elapsed="0.000391"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.252409" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.252102" elapsed="0.000371"/>
+</kw>
+<var name="${book}">{'title': 'Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity', 'price': '£31.12', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.250962" elapsed="0.001578"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.253125" level="INFO">Length is 15.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.252817" elapsed="0.000375"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.253963" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.253329" elapsed="0.000761"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.255227" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.254452" elapsed="0.000861"/>
+</kw>
+<var name="${book}">{'title': 'This One Summer', 'price': '£19.49', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.252687" elapsed="0.002715"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.256096" level="INFO">Length is 6.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.255750" elapsed="0.000414"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.256619" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.256302" elapsed="0.000382"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.257142" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.256825" elapsed="0.000387"/>
+</kw>
+<var name="${book}">{'title': 'Thirst', 'price': '£17.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.255586" elapsed="0.001694"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.257849" level="INFO">Length is 43.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.257537" elapsed="0.000378"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.258354" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.258051" elapsed="0.000370"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.258864" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.258557" elapsed="0.000371"/>
+</kw>
+<var name="${book}">{'title': 'The Torch Is Passed: A Harding Family Story', 'price': '£19.09', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.257428" elapsed="0.001566"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.259576" level="INFO">Length is 31.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.259256" elapsed="0.000388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.260093" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.259783" elapsed="0.000374"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.260598" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.260291" elapsed="0.000373"/>
+</kw>
+<var name="${book}">{'title': 'The Secret of Dreadwillow Carse', 'price': '£56.13', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.259148" elapsed="0.001581"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.261302" level="INFO">Length is 127.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.260990" elapsed="0.000377"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.261868" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.261506" elapsed="0.000441"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.262476" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.262150" elapsed="0.000400"/>
+</kw>
+<var name="${book}">{'title': 'The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!', 'price': '£56.41', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.260882" elapsed="0.001739"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.263227" level="INFO">Length is 19.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.262901" elapsed="0.000398"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.263773" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.263446" elapsed="0.000394"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.264307" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.263983" elapsed="0.000419"/>
+</kw>
+<var name="${book}">{'title': 'The Past Never Ends', 'price': '£56.50', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.262783" elapsed="0.001691"/>
+</iter>
+<iter>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.265073" level="INFO">Length is 57.</msg>
+<arg>${book}[title]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.264746" elapsed="0.000399"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.265617" level="INFO">Length is 6.</msg>
+<arg>${book}[price]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.265291" elapsed="0.000394"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-08-21T16:11:54.266154" level="INFO">Length is 8.</msg>
+<arg>${book}[stock]</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.265832" elapsed="0.000391"/>
+</kw>
+<var name="${book}">{'title': 'The Natural History of Us (The Fine Art of Pretending #2)', 'price': '£45.22', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:11:54.264629" elapsed="0.001666"/>
+</iter>
+<var>${book}</var>
+<value>@{books}</value>
+<status status="PASS" start="2026-08-21T16:11:54.112070" elapsed="0.154301"/>
+</for>
+<doc>Data-quality check: every book must have all fields populated.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.108319" elapsed="0.158437"/>
+</test>
+<test id="s1-t3" name="AI Should Find No Misspelled Book Titles" line="32">
+<kw name="Get Scraped Books" owner="BookScraper">
+<msg time="2026-08-21T16:11:54.268555" level="INFO">${books} = [{'title': 'A Light in the Attic', 'price': '£51.77', 'stock': 'In stock'}, {'title': 'Tipping the Velvet', 'price': '£53.74', 'stock': 'In stock'}, {'title': 'Soumission', 'price': '£50.10', 'stock':...</msg>
+<var>${books}</var>
+<status status="PASS" start="2026-08-21T16:11:54.268251" elapsed="0.000350"/>
+</kw>
+<kw name="Ai Check Titles For Misspellings" owner="AISpellingValidator">
+<msg time="2026-08-21T16:11:56.783635" level="INFO">HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"</msg>
+<msg time="2026-08-21T16:11:56.832559" level="INFO">---- RAW AI RESPONSE ----
+'[]'
+--------------------------</msg>
+<msg time="2026-08-21T16:11:56.832787" level="INFO">${misspelled} = []</msg>
+<var>${misspelled}</var>
+<arg>${books}</arg>
+<status status="PASS" start="2026-08-21T16:11:54.268845" elapsed="2.564012"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-08-21T16:11:56.834089" level="INFO">AI flagged: []</msg>
+<arg>AI flagged: ${misspelled}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-08-21T16:11:56.833457" elapsed="0.000744"/>
+</kw>
+<kw name="Ai Titles Should Have No Misspellings" owner="AISpellingValidator">
+<status status="PASS" start="2026-08-21T16:11:56.834640" elapsed="0.000192"/>
+</kw>
+<doc>Uses AI (Groq) to check scraped book titles for spelling errors.</doc>
+<status status="PASS" start="2026-08-21T16:11:54.267693" elapsed="2.567902"/>
+</test>
+<test id="s1-t4" name="Open Browser and Verify Book Listings Render" line="39">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:11:56.839311" level="INFO">Opening browser 'edge' to base url 'https://books.toscrape.com'.</msg>
+<arg>${SITE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-21T16:11:56.838827" elapsed="3.141683"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:11:59.992871" level="INFO">Page title is 'All products | Books to Scrape - Sandbox'.</msg>
+<arg>All products | Books to Scrape - Sandbox</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-08-21T16:11:59.981036" elapsed="0.012057"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:00.008588" level="INFO">${count} = 20</msg>
+<var>${count}</var>
+<arg>css=article.product_pod</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-08-21T16:11:59.993526" elapsed="0.015136"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>No book listings rendered on the page</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-08-21T16:12:00.009070" elapsed="0.001180"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-21T16:12:00.010818" elapsed="2.237759"/>
+</kw>
+<doc>Selenium check: verifies the live site loads and
+actually renders book listings in the browser.</doc>
+<status status="PASS" start="2026-08-21T16:11:56.837532" elapsed="5.411761"/>
+</test>
+<test id="s1-t5" name="Scraped Site if Books Exist" line="48">
+<kw name="Get Scraped Books" owner="BookScraper">
+<msg time="2026-08-21T16:12:02.256881" level="INFO">${books} = [{'title': 'A Light in the Attic', 'price': '£51.77', 'stock': 'In stock'}, {'title': 'Tipping the Velvet', 'price': '£53.74', 'stock': 'In stock'}, {'title': 'Soumission', 'price': '£50.10', 'stock':...</msg>
+<var>${books}</var>
+<status status="PASS" start="2026-08-21T16:12:02.255920" elapsed="0.001109"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:02.258673" level="INFO">Opening browser 'edge' to base url 'https://books.toscrape.com'.</msg>
+<arg>${SITE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-21T16:12:02.257902" elapsed="3.086037"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.361226" level="INFO">Current page contains element 'xpath=//h3/a[@title="A Light in the Attic"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.346417" elapsed="0.014936"/>
+</kw>
+<msg time="2026-08-21T16:12:05.361551" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.345659" elapsed="0.015936"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.362105" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.362300" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.362486" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.361765" elapsed="0.000830"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.361720" elapsed="0.000946"/>
+</if>
+<var name="${book}">{'title': 'A Light in the Attic', 'price': '£51.77', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.345442" elapsed="0.017267"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.375855" level="INFO">Current page contains element 'xpath=//h3/a[@title="Tipping the Velvet"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.363525" elapsed="0.012458"/>
+</kw>
+<msg time="2026-08-21T16:12:05.376181" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.363071" elapsed="0.013157"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.376716" elapsed="0.000049"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.376924" elapsed="0.000070"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.377185" elapsed="0.000085"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.376399" elapsed="0.000952"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.376358" elapsed="0.001068"/>
+</if>
+<var name="${book}">{'title': 'Tipping the Velvet', 'price': '£53.74', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.362937" elapsed="0.014536"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.388743" level="INFO">Current page contains element 'xpath=//h3/a[@title="Soumission"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.378273" elapsed="0.010591"/>
+</kw>
+<msg time="2026-08-21T16:12:05.389048" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.377857" elapsed="0.011234"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.389529" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.389724" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.389911" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.389236" elapsed="0.000780"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.389203" elapsed="0.000876"/>
+</if>
+<var name="${book}">{'title': 'Soumission', 'price': '£50.10', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.377723" elapsed="0.012397"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.399944" level="INFO">Current page contains element 'xpath=//h3/a[@title="Sharp Objects"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.391001" elapsed="0.009065"/>
+</kw>
+<msg time="2026-08-21T16:12:05.400253" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.390527" elapsed="0.009768"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.400731" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.400927" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.401423" elapsed="0.000081"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.400438" elapsed="0.001250"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.400404" elapsed="0.001411"/>
+</if>
+<var name="${book}">{'title': 'Sharp Objects', 'price': '£47.82', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.390363" elapsed="0.011531"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.412555" level="INFO">Current page contains element 'xpath=//h3/a[@title="Sapiens: A Brief History of Humankind"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.403051" elapsed="0.009624"/>
+</kw>
+<msg time="2026-08-21T16:12:05.412855" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.402582" elapsed="0.010314"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.413346" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.413539" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.413726" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.413039" elapsed="0.000794"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.413005" elapsed="0.000893"/>
+</if>
+<var name="${book}">{'title': 'Sapiens: A Brief History of Humankind', 'price': '£54.23', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.402374" elapsed="0.011565"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.425050" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Requiem Red"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.414712" elapsed="0.010480"/>
+</kw>
+<msg time="2026-08-21T16:12:05.425387" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.414293" elapsed="0.011137"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.425869" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.426065" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.426252" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.425574" elapsed="0.000784"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.425541" elapsed="0.000880"/>
+</if>
+<var name="${book}">{'title': 'The Requiem Red', 'price': '£22.65', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.414162" elapsed="0.012299"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.436696" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Dirty Little Secrets of Getting Your Dream Job"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.427221" elapsed="0.009593"/>
+</kw>
+<msg time="2026-08-21T16:12:05.437034" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.426813" elapsed="0.010262"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.437522" elapsed="0.000078"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.437803" elapsed="0.000066"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.438044" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.437229" elapsed="0.000926"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.437196" elapsed="0.001025"/>
+</if>
+<var name="${book}">{'title': 'The Dirty Little Secrets of Getting Your Dream Job', 'price': '£33.34', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.426684" elapsed="0.011580"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.448279" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.439076" elapsed="0.009321"/>
+</kw>
+<msg time="2026-08-21T16:12:05.448571" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.438649" elapsed="0.009965"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.449066" elapsed="0.000043"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.449266" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.449447" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.448763" elapsed="0.000785"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.448730" elapsed="0.000879"/>
+</if>
+<var name="${book}">{'title': 'The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull', 'price': '£17.93', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.438510" elapsed="0.011140"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.460437" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.450416" elapsed="0.010140"/>
+</kw>
+<msg time="2026-08-21T16:12:05.460732" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.450002" elapsed="0.010771"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.461229" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.461423" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.461606" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.460916" elapsed="0.000794"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.460882" elapsed="0.000890"/>
+</if>
+<var name="${book}">{'title': 'The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics', 'price': '£22.60', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.449874" elapsed="0.011938"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.472516" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Black Maria"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.462576" elapsed="0.010064"/>
+</kw>
+<msg time="2026-08-21T16:12:05.472824" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.462166" elapsed="0.010700"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.473309" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.473512" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.473699" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.473012" elapsed="0.000792"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.472978" elapsed="0.000888"/>
+</if>
+<var name="${book}">{'title': 'The Black Maria', 'price': '£52.15', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.462038" elapsed="0.011870"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.484119" level="INFO">Current page contains element 'xpath=//h3/a[@title="Starving Hearts (Triangular Trade Trilogy, #1)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.474670" elapsed="0.009794"/>
+</kw>
+<msg time="2026-08-21T16:12:05.484686" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.474255" elapsed="0.010480"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.485689" elapsed="0.000278"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.486174" elapsed="0.000047"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.486385" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.485181" elapsed="0.001318"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.484860" elapsed="0.001710"/>
+</if>
+<var name="${book}">{'title': 'Starving Hearts (Triangular Trade Trilogy, #1)', 'price': '£13.99', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.474127" elapsed="0.012493"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.497599" level="INFO">Current page contains element 'xpath=//h3/a[@title="Shakespeare's Sonnets"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.487480" elapsed="0.010246"/>
+</kw>
+<msg time="2026-08-21T16:12:05.497921" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.487033" elapsed="0.010934"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.498428" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.498637" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.498835" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.498120" elapsed="0.000828"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.498085" elapsed="0.000929"/>
+</if>
+<var name="${book}">{'title': "Shakespeare's Sonnets", 'price': '£20.66', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.486892" elapsed="0.012169"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.510667" level="INFO">Current page contains element 'xpath=//h3/a[@title="Set Me Free"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.499921" elapsed="0.010866"/>
+</kw>
+<msg time="2026-08-21T16:12:05.510968" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.499477" elapsed="0.011533"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.511451" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.511643" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.511829" elapsed="0.000062"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.511160" elapsed="0.000837"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.511124" elapsed="0.000968"/>
+</if>
+<var name="${book}">{'title': 'Set Me Free', 'price': '£17.46', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.499301" elapsed="0.012841"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.523241" level="INFO">Current page contains element 'xpath=//h3/a[@title="Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.513058" elapsed="0.010322"/>
+</kw>
+<msg time="2026-08-21T16:12:05.523569" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.512586" elapsed="0.011024"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.524043" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.524233" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.524414" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.523753" elapsed="0.000764"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.523719" elapsed="0.000859"/>
+</if>
+<var name="${book}">{'title': "Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)", 'price': '£52.29', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.512425" elapsed="0.012193"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.534533" level="INFO">Current page contains element 'xpath=//h3/a[@title="Rip it Up and Start Again"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.525379" elapsed="0.009276"/>
+</kw>
+<msg time="2026-08-21T16:12:05.534836" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.524970" elapsed="0.009909"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.535590" elapsed="0.000091"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.535976" elapsed="0.000086"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.536379" elapsed="0.000051"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.535025" elapsed="0.001479"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.534992" elapsed="0.001584"/>
+</if>
+<var name="${book}">{'title': 'Rip it Up and Start Again', 'price': '£35.02', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.524838" elapsed="0.011787"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.546641" level="INFO">Current page contains element 'xpath=//h3/a[@title="Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.537474" elapsed="0.009292"/>
+</kw>
+<msg time="2026-08-21T16:12:05.546955" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.537036" elapsed="0.009966"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.547437" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.547655" elapsed="0.000045"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.547850" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.547148" elapsed="0.000810"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.547114" elapsed="0.000913"/>
+</if>
+<var name="${book}">{'title': 'Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991', 'price': '£57.25', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.536890" elapsed="0.011181"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.558852" level="INFO">Current page contains element 'xpath=//h3/a[@title="Olio"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.548870" elapsed="0.010099"/>
+</kw>
+<msg time="2026-08-21T16:12:05.559143" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.548447" elapsed="0.010736"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.559624" elapsed="0.000054"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.559829" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.560007" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.559323" elapsed="0.000786"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.559291" elapsed="0.000879"/>
+</if>
+<var name="${book}">{'title': 'Olio', 'price': '£23.88', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.548308" elapsed="0.011902"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.570499" level="INFO">Current page contains element 'xpath=//h3/a[@title="Mesaerion: The Best Science Fiction Stories 1800-1849"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.560983" elapsed="0.009667"/>
+</kw>
+<msg time="2026-08-21T16:12:05.570839" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.560574" elapsed="0.010329"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.571361" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.571564" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.571756" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.571062" elapsed="0.000806"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.571027" elapsed="0.000907"/>
+</if>
+<var name="${book}">{'title': 'Mesaerion: The Best Science Fiction Stories 1800-1849', 'price': '£37.59', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.560441" elapsed="0.011536"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.582467" level="INFO">Current page contains element 'xpath=//h3/a[@title="Libertarianism for Beginners"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.572772" elapsed="0.009818"/>
+</kw>
+<msg time="2026-08-21T16:12:05.582772" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.572348" elapsed="0.010467"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.583256" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.583445" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.583627" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.582962" elapsed="0.000767"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.582928" elapsed="0.000864"/>
+</if>
+<var name="${book}">{'title': 'Libertarianism for Beginners', 'price': '£51.33', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.572211" elapsed="0.011621"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.594787" level="INFO">Current page contains element 'xpath=//h3/a[@title="It's Only the Himalayas"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.584605" elapsed="0.010366"/>
+</kw>
+<msg time="2026-08-21T16:12:05.595253" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.584194" elapsed="0.011133"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.596020" elapsed="0.000072"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.596318" elapsed="0.000086"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:05.596627" elapsed="0.000062"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:05.595567" elapsed="0.001221"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.595514" elapsed="0.001370"/>
+</if>
+<var name="${book}">{'title': "It's Only the Himalayas", 'price': '£45.17', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.584054" elapsed="0.012897"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.747915" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-142.png"&gt;&lt;img src="selenium-screenshot-142.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-08-21T16:12:05.748248" level="FAIL">Page should have contained element 'xpath=//h3/a[@title="In Her Wake"]' but did not.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2026-08-21T16:12:05.598176" elapsed="0.154684">Page should have contained element 'xpath=//h3/a[@title="In Her Wake"]' but did not.</status>
+</kw>
+<msg time="2026-08-21T16:12:05.754595" level="INFO">${found} = False</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.597544" elapsed="0.157303"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:05.756579" level="INFO">Clicking element 'css=li.next a'.</msg>
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-21T16:12:05.755802" elapsed="1.135764"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.891956" elapsed="0.030050"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.931337" level="INFO">Current page contains element 'xpath=//h3/a[@title="In Her Wake"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.922244" elapsed="0.009212"/>
+</kw>
+<status status="PASS" start="2026-08-21T16:12:05.755148" elapsed="1.176399"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:05.755089" elapsed="1.176538"/>
+</if>
+<var name="${book}">{'title': 'In Her Wake', 'price': '£12.84', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:05.597313" elapsed="1.334362"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.941864" level="INFO">Current page contains element 'xpath=//h3/a[@title="How Music Works"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.932573" elapsed="0.009409"/>
+</kw>
+<msg time="2026-08-21T16:12:06.942174" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.932145" elapsed="0.010072"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.942655" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.942843" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.943025" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:06.942364" elapsed="0.000764"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:06.942329" elapsed="0.000862"/>
+</if>
+<var name="${book}">{'title': 'How Music Works', 'price': '£37.32', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:06.931973" elapsed="0.011259"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.955588" level="INFO">Current page contains element 'xpath=//h3/a[@title="Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.945765" elapsed="0.009948"/>
+</kw>
+<msg time="2026-08-21T16:12:06.955895" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.944879" elapsed="0.011058"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.956367" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.956560" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.956746" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:06.956078" elapsed="0.000774"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:06.956046" elapsed="0.000868"/>
+</if>
+<var name="${book}">{'title': 'Foolproof Preserving: A Guide to Small Batch Jams, Jellies, Pickles, Condiments, and More: A Foolproof Guide to Making Small Batch Jams, Jellies, Pickles, Condiments, and More', 'price': '£...</var>
+<status status="PASS" start="2026-08-21T16:12:06.944494" elapsed="0.012460"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.968327" level="INFO">Current page contains element 'xpath=//h3/a[@title="Chase Me (Paris Nights #2)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.957721" elapsed="0.010750"/>
+</kw>
+<msg time="2026-08-21T16:12:06.968672" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.957309" elapsed="0.011410"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.969258" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.969449" elapsed="0.000039"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.969634" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:06.968939" elapsed="0.000807"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:06.968890" elapsed="0.000922"/>
+</if>
+<var name="${book}">{'title': 'Chase Me (Paris Nights #2)', 'price': '£25.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:06.957177" elapsed="0.012678"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.981218" level="INFO">Current page contains element 'xpath=//h3/a[@title="Black Dust"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.970659" elapsed="0.010678"/>
+</kw>
+<msg time="2026-08-21T16:12:06.981520" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.970227" elapsed="0.011335"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.981993" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.982185" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:06.982367" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:06.981705" elapsed="0.000763"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:06.981671" elapsed="0.000884"/>
+</if>
+<var name="${book}">{'title': 'Black Dust', 'price': '£34.53', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:06.970087" elapsed="0.012511"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:06.999409" level="INFO">Current page contains element 'xpath=//h3/a[@title="Birdsong: A Story in Pictures"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.983357" elapsed="0.016241"/>
+</kw>
+<msg time="2026-08-21T16:12:06.999920" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:06.982952" elapsed="0.017135"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.000664" elapsed="0.000065"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.000954" elapsed="0.000053"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.001177" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.000308" elapsed="0.000993"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.000269" elapsed="0.001104"/>
+</if>
+<var name="${book}">{'title': 'Birdsong: A Story in Pictures', 'price': '£54.64', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:06.982820" elapsed="0.018603"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.013250" level="INFO">Current page contains element 'xpath=//h3/a[@title="America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.002289" elapsed="0.011092"/>
+</kw>
+<msg time="2026-08-21T16:12:07.013572" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.001868" elapsed="0.011749"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.014199" elapsed="0.000060"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.014430" elapsed="0.000044"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.014646" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.013812" elapsed="0.000952"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.013761" elapsed="0.001072"/>
+</if>
+<var name="${book}">{'title': "America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana", 'price': '£22.50', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.001719" elapsed="0.013159"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.025273" level="INFO">Current page contains element 'xpath=//h3/a[@title="Aladdin and His Wonderful Lamp"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.015718" elapsed="0.009675"/>
+</kw>
+<msg time="2026-08-21T16:12:07.025596" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.015293" elapsed="0.010348"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.026075" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.026266" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.026457" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.025789" elapsed="0.000775"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.025757" elapsed="0.000868"/>
+</if>
+<var name="${book}">{'title': 'Aladdin and His Wonderful Lamp', 'price': '£53.13', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.015152" elapsed="0.011516"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.040143" level="INFO">Current page contains element 'xpath=//h3/a[@title="Worlds Elsewhere: Journeys Around Shakespeare’s Globe"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.028885" elapsed="0.011390"/>
+</kw>
+<msg time="2026-08-21T16:12:07.040494" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.027024" elapsed="0.013523"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.041005" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.041208" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.041408" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.040699" elapsed="0.000818"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.040667" elapsed="0.001122"/>
+</if>
+<var name="${book}">{'title': 'Worlds Elsewhere: Journeys Around Shakespeare’s Globe', 'price': '£40.30', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.026890" elapsed="0.014948"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.054044" level="INFO">Current page contains element 'xpath=//h3/a[@title="Wall and Piece"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.042635" elapsed="0.011527"/>
+</kw>
+<msg time="2026-08-21T16:12:07.054350" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.042202" elapsed="0.012191"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.054828" elapsed="0.000067"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.055100" elapsed="0.000057"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.055328" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.054538" elapsed="0.000900"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.054507" elapsed="0.000998"/>
+</if>
+<var name="${book}">{'title': 'Wall and Piece', 'price': '£44.18', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.042066" elapsed="0.013484"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.066877" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Four Agreements: A Practical Guide to Personal Freedom"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.056534" elapsed="0.010465"/>
+</kw>
+<msg time="2026-08-21T16:12:07.067184" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.056015" elapsed="0.011213"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.067666" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.067858" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.068041" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.067372" elapsed="0.000773"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.067340" elapsed="0.000872"/>
+</if>
+<var name="${book}">{'title': 'The Four Agreements: A Practical Guide to Personal Freedom', 'price': '£17.66', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.055787" elapsed="0.012468"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.079355" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Five Love Languages: How to Express Heartfelt Commitment to Your Mate"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.069023" elapsed="0.010454"/>
+</kw>
+<msg time="2026-08-21T16:12:07.079663" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.068615" elapsed="0.011091"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.080349" elapsed="0.000068"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.080585" elapsed="0.000044"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.080826" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.079881" elapsed="0.001059"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.079829" elapsed="0.001175"/>
+</if>
+<var name="${book}">{'title': 'The Five Love Languages: How to Express Heartfelt Commitment to Your Mate', 'price': '£31.05', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.068479" elapsed="0.012573"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.091492" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Elephant Tree"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.081872" elapsed="0.009743"/>
+</kw>
+<msg time="2026-08-21T16:12:07.091810" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.081443" elapsed="0.010413"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.092323" elapsed="0.000049"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.092567" elapsed="0.000044"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.092755" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.092020" elapsed="0.000905"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.091982" elapsed="0.001064"/>
+</if>
+<var name="${book}">{'title': 'The Elephant Tree', 'price': '£23.82', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.081305" elapsed="0.011791"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.107471" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Bear and the Piano"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.093940" elapsed="0.013654"/>
+</kw>
+<msg time="2026-08-21T16:12:07.107779" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.093496" elapsed="0.014326"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.108260" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.108452" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.108636" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.107967" elapsed="0.000772"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.107935" elapsed="0.000866"/>
+</if>
+<var name="${book}">{'title': 'The Bear and the Piano', 'price': '£36.89', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.093350" elapsed="0.015492"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.121777" level="INFO">Current page contains element 'xpath=//h3/a[@title="Sophie's World"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.109600" elapsed="0.012302"/>
+</kw>
+<msg time="2026-08-21T16:12:07.122095" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.109197" elapsed="0.012946"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.122594" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.122797" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.122990" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.122294" elapsed="0.000804"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.122261" elapsed="0.000901"/>
+</if>
+<var name="${book}">{'title': "Sophie's World", 'price': '£15.94', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.109063" elapsed="0.014143"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.133861" level="INFO">Current page contains element 'xpath=//h3/a[@title="Penny Maybe"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.124002" elapsed="0.009980"/>
+</kw>
+<msg time="2026-08-21T16:12:07.134290" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.123582" elapsed="0.010814"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.135212" elapsed="0.000051"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.135426" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.135620" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.134830" elapsed="0.000899"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.134764" elapsed="0.001029"/>
+</if>
+<var name="${book}">{'title': 'Penny Maybe', 'price': '£33.29', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.123440" elapsed="0.012423"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.147379" level="INFO">Current page contains element 'xpath=//h3/a[@title="Maude (1883-1993):She Grew Up with the country"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.137085" elapsed="0.010430"/>
+</kw>
+<msg time="2026-08-21T16:12:07.147717" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.136546" elapsed="0.011218"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.148237" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.148436" elapsed="0.000044"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.148627" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.147938" elapsed="0.000791"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.147906" elapsed="0.000897"/>
+</if>
+<var name="${book}">{'title': 'Maude (1883-1993):She Grew Up with the country', 'price': '£18.02', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.136299" elapsed="0.012550"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.159142" level="INFO">Current page contains element 'xpath=//h3/a[@title="In a Dark, Dark Wood"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.149792" elapsed="0.009470"/>
+</kw>
+<msg time="2026-08-21T16:12:07.159446" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.149305" elapsed="0.010184"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.159934" elapsed="0.000082"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.160198" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.160429" elapsed="0.000046"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.159634" elapsed="0.000911"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.159601" elapsed="0.001011"/>
+</if>
+<var name="${book}">{'title': 'In a Dark, Dark Wood', 'price': '£19.63', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.149125" elapsed="0.011535"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.172248" level="INFO">Current page contains element 'xpath=//h3/a[@title="Behind Closed Doors"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.162018" elapsed="0.010349"/>
+</kw>
+<msg time="2026-08-21T16:12:07.172545" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.161051" elapsed="0.011534"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.173020" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.173213" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.173391" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.172722" elapsed="0.000772"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.172690" elapsed="0.000865"/>
+</if>
+<var name="${book}">{'title': 'Behind Closed Doors', 'price': '£52.22', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.160906" elapsed="0.012691"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.185427" level="INFO">Current page contains element 'xpath=//h3/a[@title="You can't bury them all: Poems"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.174363" elapsed="0.011186"/>
+</kw>
+<msg time="2026-08-21T16:12:07.185737" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.173947" elapsed="0.011834"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.186236" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.186436" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:07.186628" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:07.185931" elapsed="0.000837"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.185896" elapsed="0.000954"/>
+</if>
+<var name="${book}">{'title': "You can't bury them all: Poems", 'price': '£33.63', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.173815" elapsed="0.013081"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.373471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-143.png"&gt;&lt;img src="selenium-screenshot-143.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-08-21T16:12:07.373663" level="FAIL">Page should have contained element 'xpath=//h3/a[@title="Slow States of Collapse: Poems"]' but did not.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2026-08-21T16:12:07.187683" elapsed="0.187177">Page should have contained element 'xpath=//h3/a[@title="Slow States of Collapse: Poems"]' but did not.</status>
+</kw>
+<msg time="2026-08-21T16:12:07.375054" level="INFO">${found} = False</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.187261" elapsed="0.187836"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:07.375807" level="INFO">Clicking element 'css=li.next a'.</msg>
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-21T16:12:07.375498" elapsed="0.846213"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.221944" elapsed="0.022873"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.252636" level="INFO">Current page contains element 'xpath=//h3/a[@title="Slow States of Collapse: Poems"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.245051" elapsed="0.007727"/>
+</kw>
+<status status="PASS" start="2026-08-21T16:12:07.375235" elapsed="0.877677"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:07.375205" elapsed="0.877779"/>
+</if>
+<var name="${book}">{'title': 'Slow States of Collapse: Poems', 'price': '£57.31', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:07.187125" elapsed="1.065906"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.264617" level="INFO">Current page contains element 'xpath=//h3/a[@title="Reasons to Stay Alive"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.254017" elapsed="0.010723"/>
+</kw>
+<msg time="2026-08-21T16:12:08.264928" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.253522" elapsed="0.011452"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.265423" elapsed="0.000051"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.265626" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.265819" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.265127" elapsed="0.000803"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.265094" elapsed="0.000901"/>
+</if>
+<var name="${book}">{'title': 'Reasons to Stay Alive', 'price': '£26.41', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.253296" elapsed="0.012743"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.278063" level="INFO">Current page contains element 'xpath=//h3/a[@title="Private Paris (Private #10)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.266843" elapsed="0.011336"/>
+</kw>
+<msg time="2026-08-21T16:12:08.278357" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.266416" elapsed="0.011982"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.278843" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.279033" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.279216" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.278554" elapsed="0.000765"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.278522" elapsed="0.000858"/>
+</if>
+<var name="${book}">{'title': 'Private Paris (Private #10)', 'price': '£47.61', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.266277" elapsed="0.013145"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.291153" level="INFO">Current page contains element 'xpath=//h3/a[@title="#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe."]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.280416" elapsed="0.010865"/>
+</kw>
+<msg time="2026-08-21T16:12:08.291465" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.279846" elapsed="0.011661"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.291943" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.292129" elapsed="0.000041"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.292310" elapsed="0.000040"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.291654" elapsed="0.000758"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.291623" elapsed="0.000851"/>
+</if>
+<var name="${book}">{'title': '#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.', 'price': '£23.11', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.279708" elapsed="0.012808"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.303206" level="INFO">Current page contains element 'xpath=//h3/a[@title="Without Borders (Wanderlove #1)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.293283" elapsed="0.010050"/>
+</kw>
+<msg time="2026-08-21T16:12:08.303522" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.292873" elapsed="0.010702"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.304220" elapsed="0.000054"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.304462" elapsed="0.000059"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.304707" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.303747" elapsed="0.001093"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.303710" elapsed="0.001199"/>
+</if>
+<var name="${book}">{'title': 'Without Borders (Wanderlove #1)', 'price': '£45.07', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.292739" elapsed="0.012219"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.315638" level="INFO">Current page contains element 'xpath=//h3/a[@title="When We Collided"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.305875" elapsed="0.009884"/>
+</kw>
+<msg time="2026-08-21T16:12:08.316011" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.305430" elapsed="0.010662"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.316571" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.316772" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.316970" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.316271" elapsed="0.000809"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.316237" elapsed="0.000909"/>
+</if>
+<var name="${book}">{'title': 'When We Collided', 'price': '£31.77', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.305240" elapsed="0.011951"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.329379" level="INFO">Current page contains element 'xpath=//h3/a[@title="We Love You, Charlie Freeman"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.318451" elapsed="0.011047"/>
+</kw>
+<msg time="2026-08-21T16:12:08.329679" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.317564" elapsed="0.012158"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.330157" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.330346" elapsed="0.000039"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.330524" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.329866" elapsed="0.000758"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.329835" elapsed="0.000850"/>
+</if>
+<var name="${book}">{'title': 'We Love You, Charlie Freeman', 'price': '£50.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.317430" elapsed="0.013297"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.347441" level="INFO">Current page contains element 'xpath=//h3/a[@title="Untitled Collection: Sabbath Poems 2014"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.331627" elapsed="0.015938"/>
+</kw>
+<msg time="2026-08-21T16:12:08.347756" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.331164" elapsed="0.016638"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.348258" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.348458" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.348650" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.347956" elapsed="0.000802"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.347924" elapsed="0.000898"/>
+</if>
+<var name="${book}">{'title': 'Untitled Collection: Sabbath Poems 2014', 'price': '£14.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.330955" elapsed="0.017912"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.361785" level="INFO">Current page contains element 'xpath=//h3/a[@title="Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails &amp; Other Wonders of the Urban Wilderness"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.349684" elapsed="0.012293"/>
+</kw>
+<msg time="2026-08-21T16:12:08.362254" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.349257" elapsed="0.013074"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.362897" elapsed="0.000053"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.363128" elapsed="0.000066"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.363364" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.362571" elapsed="0.000930"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.362522" elapsed="0.001049"/>
+</if>
+<var name="${book}">{'title': 'Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails &amp; Other Wonders of the Urban Wilderness', 'price': '£44.18', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.349100" elapsed="0.014519"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.377200" level="INFO">Current page contains element 'xpath=//h3/a[@title="Unicorn Tracks"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.364834" elapsed="0.012521"/>
+</kw>
+<msg time="2026-08-21T16:12:08.377851" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.364285" elapsed="0.013658"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.378519" elapsed="0.000068"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.378810" elapsed="0.000052"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.379028" elapsed="0.000062"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.378161" elapsed="0.001033"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.378119" elapsed="0.001170"/>
+</if>
+<var name="${book}">{'title': 'Unicorn Tracks', 'price': '£18.78', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.364089" elapsed="0.015271"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.395842" level="INFO">Current page contains element 'xpath=//h3/a[@title="Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.380394" elapsed="0.015570"/>
+</kw>
+<msg time="2026-08-21T16:12:08.396150" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.379858" elapsed="0.016336"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.397013" elapsed="0.000089"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.397368" elapsed="0.000070"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.397655" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.396343" elapsed="0.001417"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.396311" elapsed="0.001515"/>
+</if>
+<var name="${book}">{'title': 'Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink', 'price': '£25.52', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.379667" elapsed="0.018205"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.411327" level="INFO">Current page contains element 'xpath=//h3/a[@title="Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.398693" elapsed="0.012805"/>
+</kw>
+<msg time="2026-08-21T16:12:08.411718" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.398260" elapsed="0.013503"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.412362" elapsed="0.000057"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.412583" elapsed="0.000077"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.412848" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.411989" elapsed="0.000970"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.411954" elapsed="0.001071"/>
+</if>
+<var name="${book}">{'title': 'Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)', 'price': '£16.28', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.398119" elapsed="0.014952"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.431285" level="INFO">Current page contains element 'xpath=//h3/a[@title="Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.413886" elapsed="0.017527"/>
+</kw>
+<msg time="2026-08-21T16:12:08.431603" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.413459" elapsed="0.018190"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.432223" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.432415" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.432591" elapsed="0.000058"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.431899" elapsed="0.000813"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.431847" elapsed="0.000923"/>
+</if>
+<var name="${book}">{'title': 'Throwing Rocks at the Google Bus: How Growth Became the Enemy of Prosperity', 'price': '£31.12', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.413313" elapsed="0.019498"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.445841" level="INFO">Current page contains element 'xpath=//h3/a[@title="This One Summer"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.433567" elapsed="0.012457"/>
+</kw>
+<msg time="2026-08-21T16:12:08.446328" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.433173" elapsed="0.013238"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.446933" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.447130" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.447355" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.446632" elapsed="0.000830"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.446593" elapsed="0.000931"/>
+</if>
+<var name="${book}">{'title': 'This One Summer', 'price': '£19.49', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.433048" elapsed="0.014517"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.461813" level="INFO">Current page contains element 'xpath=//h3/a[@title="Thirst"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.448633" elapsed="0.013302"/>
+</kw>
+<msg time="2026-08-21T16:12:08.462123" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.448099" elapsed="0.014066"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.462613" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.462810" elapsed="0.000042"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.463011" elapsed="0.000050"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.462314" elapsed="0.000817"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.462282" elapsed="0.000920"/>
+</if>
+<var name="${book}">{'title': 'Thirst', 'price': '£17.27', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.447862" elapsed="0.015385"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.474434" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Torch Is Passed: A Harding Family Story"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.464137" elapsed="0.010417"/>
+</kw>
+<msg time="2026-08-21T16:12:08.474737" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.463635" elapsed="0.011149"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.475446" elapsed="0.000114"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.475888" elapsed="0.000075"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.476243" elapsed="0.000074"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.474928" elapsed="0.001508"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.474896" elapsed="0.001652"/>
+</if>
+<var name="${book}">{'title': 'The Torch Is Passed: A Harding Family Story', 'price': '£19.09', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.463494" elapsed="0.013126"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.487614" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Secret of Dreadwillow Carse"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.477837" elapsed="0.009902"/>
+</kw>
+<msg time="2026-08-21T16:12:08.487940" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.477369" elapsed="0.010627"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.488457" elapsed="0.000059"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.488664" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.488855" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.488143" elapsed="0.000832"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.488109" elapsed="0.000925"/>
+</if>
+<var name="${book}">{'title': 'The Secret of Dreadwillow Carse', 'price': '£56.13', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.477068" elapsed="0.012003"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.500880" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.489824" elapsed="0.011174"/>
+</kw>
+<msg time="2026-08-21T16:12:08.501193" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.489420" elapsed="0.011817"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.501680" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.501874" elapsed="0.000040"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.502055" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.501384" elapsed="0.000774"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.501352" elapsed="0.000868"/>
+</if>
+<var name="${book}">{'title': 'The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!', 'price': '£56.41', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.489282" elapsed="0.012978"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.515552" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Past Never Ends"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.504027" elapsed="0.011650"/>
+</kw>
+<msg time="2026-08-21T16:12:08.515873" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.503204" elapsed="0.012725"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.516364" elapsed="0.000044"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.516554" elapsed="0.000039"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.516735" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.516076" elapsed="0.000761"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.516045" elapsed="0.000880"/>
+</if>
+<var name="${book}">{'title': 'The Past Never Ends', 'price': '£56.50', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.502897" elapsed="0.014068"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-21T16:12:08.531077" level="INFO">Current page contains element 'xpath=//h3/a[@title="The Natural History of Us (The Fine Art of Pretending #2)"]'.</msg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.517723" elapsed="0.013488"/>
+</kw>
+<msg time="2026-08-21T16:12:08.531400" level="INFO">${found} = True</msg>
+<var>${found}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.517322" elapsed="0.014124"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${found}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=li.next a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.531905" elapsed="0.000046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=article.product_pod</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.532108" elapsed="0.000043"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>xpath=//h3/a[@title="${book}[title]"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" start="2026-08-21T16:12:08.532305" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-08-21T16:12:08.531604" elapsed="0.000809"/>
+</branch>
+<status status="PASS" start="2026-08-21T16:12:08.531569" elapsed="0.000909"/>
+</if>
+<var name="${book}">{'title': 'The Natural History of Us (The Fine Art of Pretending #2)', 'price': '£45.22', 'stock': 'In stock'}</var>
+<status status="PASS" start="2026-08-21T16:12:08.517194" elapsed="0.015329"/>
+</iter>
+<var>${book}</var>
+<value>@{books}</value>
+<status status="PASS" start="2026-08-21T16:12:05.344707" elapsed="3.187899"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-21T16:12:08.533079" elapsed="2.228468"/>
+</kw>
+<doc>Cross-check: confirms every scraped book title
+actually appears somewhere across the site's pages.</doc>
+<status status="PASS" start="2026-08-21T16:12:02.253949" elapsed="8.508400"/>
+</test>
+<doc>Uses the custom BookScraper library to scrape book listings
+from books.toscrape.com and export to JSON, plus Selenium
+checks that verify the live site's UI matches expectations,
+plus an AI check for misspelled book titles.</doc>
+<status status="PASS" start="2026-08-21T16:11:41.248094" elapsed="29.518149"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Book" id="s1" pass="5" fail="0" skip="0">Test Book</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
