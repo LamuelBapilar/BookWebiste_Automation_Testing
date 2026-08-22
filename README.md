@@ -28,6 +28,7 @@ BookWebiste_Automation_Testing/
 ├── output.xml                   # Robot Framework run output (generated)
 ├── report.html                  # Robot Framework run report (generated)
 ├── requirements.txt
+├── .env                         # Your Groq API key (not committed)
 └── README.md
 ```
 
@@ -35,7 +36,7 @@ BookWebiste_Automation_Testing/
 
 - Python 3.9+
 - Microsoft Edge + matching [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) on your `PATH`
-- A [Groq API key](https://console.groq.com/keys) (Temporary API already included for demo, expires at Sept 20, 2026)
+- A [Groq API key](https://console.groq.com/keys) — free to generate, required to run the AI spelling check
 - VS Code
 
 ## Setup
@@ -61,6 +62,20 @@ BookWebiste_Automation_Testing/
    ```bash
    pip install -r requirements.txt
    ```
+
+5. **Get a Groq API key**
+
+   1. Go to [console.groq.com/keys](https://console.groq.com/keys)
+   2. Sign up or log in (free)
+   3. Click **Create API Key**, give it a name, and copy the generated key 
+   
+6. **Set up your Groq API key**
+
+   Create a file named `.env` in the project root and add your key:
+   ```
+   GROQ_API_KEY=your_key_here
+   ```
+   This key is required for the AI spelling check test to run. `.env` is excluded from version control via `.gitignore`, so your key stays local to your machine.
 
 ## Running the Tests
 
@@ -98,4 +113,4 @@ And in `tests/test_book.robot`:
 ## Notes
 
 - `MAX_PAGES` is capped at 3 by default to stay within Groq's free-tier rate limits and keep demo runs fast — increase it if you have a higher rate limit.
-- For Demo purposes, Temporary Groq API Key (Expires at Sept 20, 2026) is already integrated in AISpellingValidator.py so no need to provide your own key.
+- `AISpellingValidator.py` reads the Groq key from the `GROQ_API_KEY` environment variable via `.env` 

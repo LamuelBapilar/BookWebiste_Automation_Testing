@@ -5,19 +5,25 @@ Uses the Groq API to check scraped book titles for spelling errors.
 
 import json
 import re
+import os
 from dotenv import load_dotenv
 from groq import Groq
 
 load_dotenv()
 
 MODEL = "openai/gpt-oss-120b"
-GROQ_API = "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" # temporary GROQ API Key for demo purposes (Expires at Sep 20 2026)
+GROQ_API = os.getenv("GROQ_API_KEY") 
 
 
 class AISpellingValidator:
     ROBOT_LIBRARY_SCOPE = "SUITE"
 
     def __init__(self):
+        if not GROQ_API:
+            raise ValueError(
+                "GROQ_API_KEY not found in environment variables. Please set it "
+                "with GROQ_API_KEY=your_key_here in the project root."
+            )       
         self.client = Groq(api_key=GROQ_API)
         self.misspelled = []
 
@@ -54,9 +60,9 @@ If no misspellings are found, respond with exactly: []"""
         raw_text = response.choices[0].message.content or ""
         raw_text = raw_text.strip()
 
+        # raw AI response for debugging
         print("---- RAW AI RESPONSE ----")
         print(repr(raw_text))
-        print("--------------------------")
 
         misspelled = self._extract_json_array(raw_text)
         self.misspelled = misspelled
